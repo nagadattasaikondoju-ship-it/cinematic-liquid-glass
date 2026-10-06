@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, Sparkles, Repeat } from 'lucide-react';
-import { WordsPullUpMultiStyle } from '../components/WordsPullUpMultiStyle';
+import { ScrollLinkedHeading } from '../components/ScrollLinkedHeading';
 import { ProgressiveTextReveal } from '../components/AnimatedLetter';
+import { KineticScrollText } from '../components/KineticScrollText';
 
 interface OneLoopStudioProps {
   onJoinLab?: () => void;
@@ -15,41 +16,48 @@ export const PrismaStudioSection: React.FC<OneLoopStudioProps> = ({
   return (
     <div id="workflows" className="w-full bg-black text-[#E1E0CC] selection:bg-[#DEDBC8]/20 selection:text-white">
       {/* =========================================================================
-          ONELOOP PHILOSOPHY & DIRECTOR NARRATIVE
+          ONELOOP PHILOSOPHY SECTION (Scroll-Linked Illumination & Running Marquee)
          ========================================================================= */}
-      <section id="director" className="bg-black py-20 px-4 sm:px-6 md:px-12 flex justify-center">
-        <div className="bg-[#101010] border border-white/10 rounded-3xl p-8 sm:p-12 md:p-20 max-w-6xl w-full text-center shadow-[0_20px_60px_rgba(0,0,0,0.9)] liquid-glass">
+      <section id="director" className="bg-black py-24 px-4 sm:px-6 md:px-12 flex flex-col items-center justify-center relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#DEDBC8]/5 rounded-full blur-[150px] pointer-events-none" />
+
+        {/* Running Marquee Text 1 (Left Scrolling) */}
+        <KineticScrollText
+          text="∞ CONTINUOUS 60 FPS MOTION • ZERO JANK TRANSITIONS • LIQUID GLASS REFRACTION • FRAME-LOCKED CANVAS"
+          direction="left"
+          className="text-4xl sm:text-6xl md:text-7xl font-heading italic text-white/10 uppercase tracking-tight"
+        />
+
+        {/* Central Dark Glass Card */}
+        <div className="bg-[#0f0f0f] border border-white/10 rounded-3xl p-8 sm:p-14 md:p-20 max-w-6xl w-full text-center shadow-[0_20px_80px_rgba(0,0,0,0.95)] liquid-glass my-8 z-10">
           <div className="inline-flex items-center gap-2 text-primary text-xs uppercase tracking-[0.25em] font-semibold mb-6">
             <Sparkles size={14} />
-            <span>// 04 OneLoop Direction & Philosophy</span>
+            <span>// 04 OneLoop Philosophy &amp; Continuous Standard</span>
           </div>
 
-          {/* Heading with multi-style words */}
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl mx-auto leading-[1.1] sm:leading-[1.0] mb-10 text-[#E1E0CC]">
-            <WordsPullUpMultiStyle
-              segments={[
-                {
-                  text: 'I am Marcus Chen,',
-                  className: 'font-normal font-almarai text-[#E1E0CC] text-2xl sm:text-4xl md:text-5xl lg:text-6xl',
-                },
-                {
-                  text: 'creator & director of OneLoop.',
-                  className: 'font-serif italic text-primary text-3xl sm:text-5xl md:text-6xl lg:text-7xl',
-                },
-                {
-                  text: 'We built OneLoop to end the era of disposable, fragmented digital video.',
-                  className: 'font-normal font-almarai text-[#E1E0CC]/90 text-xl sm:text-3xl md:text-4xl lg:text-5xl',
-                },
-              ]}
+          {/* Monumental Headline with Smooth Scroll-Linked Word Illumination */}
+          <div className="mb-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading">
+            <ScrollLinkedHeading
+              line1="OneLoop was engineered"
+              line2Italic="to eliminate fragmented, disposable video."
+              line3="Continuous frame-locked motion for the living web."
             />
           </div>
 
-          {/* Progressive scroll-linked text */}
+          {/* Progressive Scroll-Linked Paragraph */}
           <ProgressiveTextReveal
-            text="Over seven years directing at Parallax and Noir Studio in Paris, we observed how traditional video players break the web experience with loading spinners and jarring stop points. OneLoop unifies cinema and code into a seamless, unbreakable loop."
+            text="Traditional video players break digital interfaces with jarring stop points, buffer delays, and layout shifts. OneLoop unifies continuous frame velocity, liquid glass refraction, and sub-millisecond memory recycling into a single, unbreakable loop."
             className="text-[#DEDBC8] text-sm sm:text-base md:text-lg max-w-3xl mx-auto font-light leading-relaxed"
           />
         </div>
+
+        {/* Running Marquee Text 2 (Right Scrolling) */}
+        <KineticScrollText
+          text="4.8X VISUAL ATTENTION RETENTION • 0.00ms SEAM TIME • SUB-MILLISECOND MEMORY CACHING • ZERO-CLS STABILITY"
+          direction="right"
+          className="text-4xl sm:text-6xl md:text-7xl font-heading italic text-[#DEDBC8]/10 uppercase tracking-tight"
+        />
       </section>
 
       {/* =========================================================================
@@ -66,18 +74,12 @@ export const PrismaStudioSection: React.FC<OneLoopStudioProps> = ({
               <Repeat size={14} />
               <span>// 05 OneLoop Studio Architecture</span>
             </div>
-            <WordsPullUpMultiStyle
-              segments={[
-                {
-                  text: 'The OneLoop production pipeline.',
-                  className: 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#E1E0CC] font-heading italic tracking-tight',
-                },
-                {
-                  text: 'Frame-locked continuity from camera capture to browser edge.',
-                  className: 'text-base sm:text-lg md:text-xl text-[#DEDBC8]/60 font-body font-light mt-1',
-                },
-              ]}
-            />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading italic text-[#E1E0CC] tracking-tight mb-3">
+              The OneLoop production pipeline.
+            </h2>
+            <p className="text-sm sm:text-base text-[#DEDBC8]/60 font-body font-light">
+              Frame-locked continuity from camera capture to browser edge.
+            </p>
           </div>
 
           {/* 4 Cards Grid */}
