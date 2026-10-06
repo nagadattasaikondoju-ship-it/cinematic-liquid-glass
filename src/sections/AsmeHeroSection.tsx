@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, ArrowRight, Instagram, Twitter, ChevronDown, Sparkles } from 'lucide-react';
+import { Repeat, ArrowRight, Instagram, Twitter, ChevronDown, Sparkles } from 'lucide-react';
 import { FadingVideo } from '../components/FadingVideo';
-import { ClockStrokeIcon, GlobeStrokeIcon } from '../components/CustomIcons';
+import { GlobeStrokeIcon } from '../components/CustomIcons';
 
-interface AsmeHeroSectionProps {
+interface OneLoopHeroProps {
   onStartProject?: () => void;
   onShowManifesto?: () => void;
   onWatchShowreel?: () => void;
 }
 
-export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
+export const OneLoopHeroSection: React.FC<OneLoopHeroProps> = ({
   onStartProject,
   onShowManifesto,
   onWatchShowreel,
@@ -38,7 +38,7 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black pointer-events-none" />
       </div>
 
-      {/* Floating Pill Header Spacer */}
+      {/* Header Spacer */}
       <div className="h-24" />
 
       {/* Hero Content Area */}
@@ -51,10 +51,10 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
           className="liquid-glass rounded-full px-4 py-1.5 inline-flex items-center gap-2.5 text-xs text-[#E1E0CC]/90 font-body mb-6"
         >
           <span className="bg-[#DEDBC8] text-black font-bold px-2 py-0.5 rounded-full text-[10px] tracking-wider uppercase flex items-center gap-1">
-            <Sparkles size={10} />
-            New
+            <Repeat size={11} className="text-black animate-spin-slow" />
+            OneLoop v2.6
           </span>
-          <span className="tracking-wide">Booking Q3/Q4 2026 engagements &mdash; limited capacity</span>
+          <span className="tracking-wide">Continuous Cinematic Playback Standard &bull; Zero-Jank Architecture</span>
         </motion.div>
 
         {/* Main Heading in Instrument Serif */}
@@ -65,7 +65,7 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
           style={{ fontFamily: "'Instrument Serif', serif" }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] text-[#E1E0CC] mb-6 tracking-tight leading-[0.95] max-w-4xl"
         >
-          Crafted Digital Experiences Built for the Curious
+          OneLoop: The Infinite Cinematic Video & Web Engine.
         </motion.h1>
 
         {/* Subtitle Description */}
@@ -75,7 +75,7 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
           transition={{ duration: 0.8, delay: 0.35, ease: 'easeOut' }}
           className="text-[#DEDBC8]/80 text-sm sm:text-base max-w-2xl font-light font-body leading-relaxed mb-8"
         >
-          We shape brand-defining websites and interactive visual systems for visionary creators. Precise typography, cinematic motion, and code you can be proud of.
+          Transforming static landing interfaces into living, breathing digital canvases. Continuous frame-locked playback, liquid glass optics, and zero latency.
         </motion.p>
 
         {/* Interactive Email Bar & Quick CTAs */}
@@ -94,7 +94,7 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder={subscribed ? "✓ You're on the exclusive VIP list!" : "Enter your email for private drop alerts"}
+              placeholder={subscribed ? "✓ You're on the OneLoop Developer Beta list!" : "Enter your email for private OneLoop SDK access"}
               className="bg-transparent flex-1 text-[#E1E0CC] placeholder:text-[#E1E0CC]/40 text-sm sm:text-base outline-none border-none"
               required
             />
@@ -113,25 +113,25 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
               onClick={onStartProject}
               className="liquid-glass-strong rounded-full px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#E1E0CC] hover:bg-white/10 transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
             >
-              <span>Initiate Project</span>
+              <span>Deploy OneLoop for Your Brand</span>
               <ArrowRight size={14} className="text-primary" />
             </button>
             <button
               onClick={onWatchShowreel}
               className="liquid-glass rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-[#E1E0CC]/90 hover:text-white transition-all hover:bg-white/5"
             >
-              Watch 4K Showreel
+              Watch OneLoop Showreel
             </button>
             <button
               onClick={onShowManifesto}
               className="text-[#E1E0CC]/70 hover:text-[#E1E0CC] text-xs sm:text-sm font-medium transition-colors px-3 py-2"
             >
-              Read Manifesto &rarr;
+              The OneLoop Philosophy &rarr;
             </button>
           </div>
         </motion.div>
 
-        {/* Stats Cards Row */}
+        {/* OneLoop Stats Cards Row */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -140,40 +140,40 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
         >
           <div className="liquid-glass p-4 rounded-2xl text-left">
             <div className="text-primary flex items-center justify-between">
-              <ClockStrokeIcon size={18} />
-              <span className="text-[10px] uppercase font-mono text-white/40">Speed</span>
+              <Repeat size={18} />
+              <span className="text-[10px] uppercase font-mono text-white/40">Continuity</span>
             </div>
             <div className="text-2xl sm:text-3xl font-heading italic tracking-[-1px] text-[#E1E0CC] mt-2">
-              6 Weeks
+              0.00 ms
             </div>
             <p className="text-[11px] text-[#DEDBC8]/60 font-body font-light mt-1">
-              Average End-to-End Launch
+              Loop Interruption &amp; Seam Time
             </p>
           </div>
 
           <div className="liquid-glass p-4 rounded-2xl text-left">
             <div className="text-primary flex items-center justify-between">
               <GlobeStrokeIcon size={18} />
-              <span className="text-[10px] uppercase font-mono text-white/40">Global</span>
+              <span className="text-[10px] uppercase font-mono text-white/40">Engagement</span>
             </div>
             <div className="text-2xl sm:text-3xl font-heading italic tracking-[-1px] text-[#E1E0CC] mt-2">
-              140+ Brands
+              4.8x Dwell
             </div>
             <p className="text-[11px] text-[#DEDBC8]/60 font-body font-light mt-1">
-              Shipped Across 4 Continents
+              Average User Attention Retention
             </p>
           </div>
 
           <div className="liquid-glass p-4 rounded-2xl text-left col-span-2 sm:col-span-1">
             <div className="text-primary flex items-center justify-between">
               <Sparkles size={18} />
-              <span className="text-[10px] uppercase font-mono text-white/40">Master</span>
+              <span className="text-[10px] uppercase font-mono text-white/40">Bitrate</span>
             </div>
             <div className="text-2xl sm:text-3xl font-heading italic tracking-[-1px] text-[#E1E0CC] mt-2">
               60 FPS
             </div>
             <p className="text-[11px] text-[#DEDBC8]/60 font-body font-light mt-1">
-              Cinematic Fluid Motion
+              Hardware WebGL Shaders
             </p>
           </div>
         </motion.div>
@@ -202,20 +202,20 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
             <Twitter size={16} />
           </a>
           <a
-            href="#capabilities"
-            aria-label="Global"
+            href="#engine"
+            aria-label="OneLoop Engine"
             className="liquid-glass rounded-full p-2.5 text-[#E1E0CC]/80 hover:text-white hover:bg-white/10 transition-all"
           >
-            <Globe size={16} />
+            <Repeat size={16} />
           </a>
         </div>
 
         {/* Scroll Indicator */}
         <a
-          href="#capabilities"
+          href="#engine"
           className="flex items-center gap-2 text-xs font-mono text-[#DEDBC8]/60 hover:text-primary transition-colors group"
         >
-          <span>EXPLORE CAPABILITIES</span>
+          <span>EXPLORE ONELOOP ENGINE</span>
           <ChevronDown size={14} className="group-hover:translate-y-1 transition-transform" />
         </a>
       </div>

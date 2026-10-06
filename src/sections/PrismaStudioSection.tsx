@@ -1,27 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, Sparkles, Repeat } from 'lucide-react';
 import { WordsPullUpMultiStyle } from '../components/WordsPullUpMultiStyle';
 import { ProgressiveTextReveal } from '../components/AnimatedLetter';
 
-interface PrismaStudioProps {
+interface OneLoopStudioProps {
   onJoinLab?: () => void;
   onInquiriesClick?: () => void;
 }
 
-export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
+export const PrismaStudioSection: React.FC<OneLoopStudioProps> = ({
   onJoinLab,
 }) => {
   return (
     <div id="workflows" className="w-full bg-black text-[#E1E0CC] selection:bg-[#DEDBC8]/20 selection:text-white">
       {/* =========================================================================
-          ABOUT SECTION (Marcus Chen + Progressive Reveal)
+          ONELOOP PHILOSOPHY & DIRECTOR NARRATIVE
          ========================================================================= */}
-      <section id="about" className="bg-black py-20 px-4 sm:px-6 md:px-12 flex justify-center">
+      <section id="director" className="bg-black py-20 px-4 sm:px-6 md:px-12 flex justify-center">
         <div className="bg-[#101010] border border-white/10 rounded-3xl p-8 sm:p-12 md:p-20 max-w-6xl w-full text-center shadow-[0_20px_60px_rgba(0,0,0,0.9)] liquid-glass">
           <div className="inline-flex items-center gap-2 text-primary text-xs uppercase tracking-[0.25em] font-semibold mb-6">
             <Sparkles size={14} />
-            <span>// 03 Director & Philosophy</span>
+            <span>// 04 OneLoop Direction & Philosophy</span>
           </div>
 
           {/* Heading with multi-style words */}
@@ -33,11 +33,11 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
                   className: 'font-normal font-almarai text-[#E1E0CC] text-2xl sm:text-4xl md:text-5xl lg:text-6xl',
                 },
                 {
-                  text: 'a self-taught director.',
+                  text: 'creator & director of OneLoop.',
                   className: 'font-serif italic text-primary text-3xl sm:text-5xl md:text-6xl lg:text-7xl',
                 },
                 {
-                  text: 'I shape high-impact brand identities, cinematic 3D, and web engineering.',
+                  text: 'We built OneLoop to end the era of disposable, fragmented digital video.',
                   className: 'font-normal font-almarai text-[#E1E0CC]/90 text-xl sm:text-3xl md:text-4xl lg:text-5xl',
                 },
               ]}
@@ -46,14 +46,14 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
 
           {/* Progressive scroll-linked text */}
           <ProgressiveTextReveal
-            text="Over the last seven years, I have worked with Parallax, a Berlin-based production house that crafts cinema, series, and Noir Studio in Paris. Together, we have created work that has earned international acclaim at several major festivals."
+            text="Over seven years directing at Parallax and Noir Studio in Paris, we observed how traditional video players break the web experience with loading spinners and jarring stop points. OneLoop unifies cinema and code into a seamless, unbreakable loop."
             className="text-[#DEDBC8] text-sm sm:text-base md:text-lg max-w-3xl mx-auto font-light leading-relaxed"
           />
         </div>
       </section>
 
       {/* =========================================================================
-          STUDIO WORKFLOWS & FEATURES SECTION (4-Column Studio Grid)
+          ONELOOP WORKFLOWS & STUDIO TOOLKIT (4-Column Grid)
          ========================================================================= */}
       <section className="relative min-h-screen bg-black py-20 px-4 sm:px-6 md:px-12 overflow-hidden">
         {/* Subtle Noise Background */}
@@ -62,17 +62,18 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 max-w-4xl mx-auto">
-            <div className="text-xs uppercase font-mono text-primary mb-3 tracking-[0.25em]">
-              // 04 Studio Workflows & System
+            <div className="text-xs uppercase font-mono text-primary mb-3 tracking-[0.25em] flex items-center justify-center gap-2">
+              <Repeat size={14} />
+              <span>// 05 OneLoop Studio Architecture</span>
             </div>
             <WordsPullUpMultiStyle
               segments={[
                 {
-                  text: 'Studio-grade workflows for visionary creators.',
+                  text: 'The OneLoop production pipeline.',
                   className: 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#E1E0CC] font-heading italic tracking-tight',
                 },
                 {
-                  text: 'Built for pure vision. Powered by art.',
+                  text: 'Frame-locked continuity from camera capture to browser edge.',
                   className: 'text-base sm:text-lg md:text-xl text-[#DEDBC8]/60 font-body font-light mt-1',
                 },
               ]}
@@ -100,16 +101,16 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
               <div className="relative z-10">
                 <span className="text-[11px] font-mono uppercase tracking-widest text-primary font-semibold mb-1 block">
-                  Interactive Canvas
+                  Interactive Frame
                 </span>
-                <h3 className="text-2xl font-heading italic text-[#E1E0CC]">Your creative canvas.</h3>
+                <h3 className="text-2xl font-heading italic text-[#E1E0CC]">The OneLoop Canvas.</h3>
                 <p className="text-xs text-[#DEDBC8]/70 font-light mt-1">
-                  Ultra-high bitrate viewport with real-time dynamic grain.
+                  60 FPS frame-locked viewport with sub-millisecond memory recycling.
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 2: Project Storyboard */}
+            {/* Card 2: Loop Seam Matcher */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -128,28 +129,28 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
                   </div>
                   <span className="text-primary font-mono text-xs font-semibold">01</span>
                 </div>
-                <h3 className="text-xl font-heading italic text-[#E1E0CC] mb-4">Project Storyboard.</h3>
+                <h3 className="text-xl font-heading italic text-[#E1E0CC] mb-4">Loop Seam Matcher.</h3>
                 <ul className="space-y-3 text-xs text-[#DEDBC8]/70">
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>Non-linear sequence planning</span>
+                    <span>Optical flow seam reconciliation</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>Real-time color temperature tags</span>
+                    <span>End-point vector velocity sync</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>Vector shot framing overlays</span>
+                    <span>Automated keyframe loop stitching</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>Export to EDL & XML formats</span>
+                    <span>Instant DaVinci & Premiere export</span>
                   </li>
                 </ul>
               </div>
               <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                <span className="text-[11px] font-mono text-[#DEDBC8]/50">Sequence Flow</span>
+                <span className="text-[11px] font-mono text-[#DEDBC8]/50">Seam Calibration</span>
                 <button
                   onClick={onJoinLab}
                   className="flex items-center gap-1 text-xs text-primary hover:text-white transition-colors cursor-pointer"
@@ -160,7 +161,7 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
               </div>
             </motion.div>
 
-            {/* Card 3: Smart Critiques */}
+            {/* Card 3: Shader Harmonizer */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -179,24 +180,24 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
                   </div>
                   <span className="text-primary font-mono text-xs font-semibold">02</span>
                 </div>
-                <h3 className="text-xl font-heading italic text-[#E1E0CC] mb-4">Smart Critiques.</h3>
+                <h3 className="text-xl font-heading italic text-[#E1E0CC] mb-4">Shader Harmonizer.</h3>
                 <ul className="space-y-3 text-xs text-[#DEDBC8]/70">
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>AI scene pacing analysis</span>
+                    <span>Real-time liquid glass refraction</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>Synchronized director commentary</span>
+                    <span>ACES color gamut normalization</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>DaVinci Resolve plugin integration</span>
+                    <span>Dynamic film grain post-processing</span>
                   </li>
                 </ul>
               </div>
               <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                <span className="text-[11px] font-mono text-[#DEDBC8]/50">Feedback Engine</span>
+                <span className="text-[11px] font-mono text-[#DEDBC8]/50">Optic Engine</span>
                 <button
                   onClick={onJoinLab}
                   className="flex items-center gap-1 text-xs text-primary hover:text-white transition-colors cursor-pointer"
@@ -207,7 +208,7 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
               </div>
             </motion.div>
 
-            {/* Card 4: Immersion Capsule */}
+            {/* Card 4: Acoustic Resonance */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -226,11 +227,11 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
                   </div>
                   <span className="text-primary font-mono text-xs font-semibold">03</span>
                 </div>
-                <h3 className="text-xl font-heading italic text-[#E1E0CC] mb-4">Immersion Capsule.</h3>
+                <h3 className="text-xl font-heading italic text-[#E1E0CC] mb-4">Acoustic Resonance.</h3>
                 <ul className="space-y-3 text-xs text-[#DEDBC8]/70">
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>Zero-distraction workspace mode</span>
+                    <span>Synchronized audio loop envelopes</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
@@ -238,12 +239,12 @@ export const PrismaStudioSection: React.FC<PrismaStudioProps> = ({
                   </li>
                   <li className="flex items-center gap-2">
                     <Check size={14} className="text-primary flex-shrink-0" />
-                    <span>Automated cut revision logging</span>
+                    <span>Browser Web Audio API integration</span>
                   </li>
                 </ul>
               </div>
               <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                <span className="text-[11px] font-mono text-[#DEDBC8]/50">Focus Matrix</span>
+                <span className="text-[11px] font-mono text-[#DEDBC8]/50">Audio Matrix</span>
                 <button
                   onClick={onJoinLab}
                   className="flex items-center gap-1 text-xs text-primary hover:text-white transition-colors cursor-pointer"

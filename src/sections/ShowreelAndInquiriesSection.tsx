@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize2, Send, CheckCircle2, Sparkles, ArrowUp } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize2, Send, CheckCircle2, Sparkles, ArrowUp, Repeat } from 'lucide-react';
 
 interface ShowreelAndInquiriesProps {
   onOpenShowreelModal: () => void;
@@ -18,7 +18,7 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'Brand & Digital Experience',
+    projectType: 'OneLoop Studio Brand Experience',
     timeline: 'Q3 2026',
     budget: '$25k - $50k',
     message: '',
@@ -49,7 +49,7 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
       setFormData({
         name: '',
         email: '',
-        projectType: 'Brand & Digital Experience',
+        projectType: 'OneLoop Studio Brand Experience',
         timeline: 'Q3 2026',
         budget: '$25k - $50k',
         message: '',
@@ -64,18 +64,19 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
   return (
     <div className="w-full bg-black text-[#E1E0CC] selection:bg-[#DEDBC8]/20 selection:text-white">
       {/* =========================================================================
-          SHOWREEL SECTION
+          ONELOOP SHOWREEL SECTION
          ========================================================================= */}
       <section id="showreel" className="py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <div className="text-xs uppercase font-mono text-primary mb-3 tracking-[0.25em]">
-            // 05 Cinematic Vault
+          <div className="inline-flex items-center gap-2 text-xs uppercase font-mono text-primary mb-3 tracking-[0.25em]">
+            <Repeat size={13} />
+            <span>// 06 OneLoop Cinematic Vault</span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading italic text-[#E1E0CC] tracking-tight">
-            The 2026 Studio Showreel
+            The 2026 OneLoop Showreel
           </h2>
           <p className="text-xs sm:text-sm text-[#DEDBC8]/70 font-light mt-2 max-w-lg mx-auto">
-            A montage of high-fidelity visual experiments, real-time shaders, and art-directed brand platforms.
+            A continuous montage of frame-locked visual architectures, liquid glass refraction, and real-time WebGL shaders.
           </p>
         </div>
 
@@ -121,7 +122,7 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
                 {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
               </button>
               <span className="text-xs font-mono text-[#DEDBC8]/70 hidden sm:inline">
-                4K UHD &bull; Color graded in DaVinci ACES
+                OneLoop ACES HDR &bull; 60 FPS Mastered
               </span>
             </div>
 
@@ -137,20 +138,20 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
       </section>
 
       {/* =========================================================================
-          INQUIRIES & CONTACT BRIEF SECTION
+          DEPLOY ONELOOP / INQUIRIES BRIEF SECTION
          ========================================================================= */}
       <section id="inquiries" className="py-20 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto">
         <div className="bg-[#101010] border border-white/10 rounded-3xl p-8 sm:p-12 md:p-16 liquid-glass shadow-[0_20px_80px_rgba(0,0,0,0.9)]">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-primary mb-3">
               <Sparkles size={14} />
-              <span>// 06 Engagement & Inquiries</span>
+              <span>// 07 Deploy OneLoop Integration</span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-heading italic text-[#E1E0CC] tracking-tight">
-              Initiate a Collaboration
+              Deploy OneLoop for Your Brand
             </h2>
             <p className="text-xs sm:text-sm text-[#DEDBC8]/70 font-light mt-2 max-w-md mx-auto">
-              We take on a strictly limited number of commissions per quarter to guarantee uncompromising craft.
+              Partner with the OneLoop engineering &amp; cinematic direction studio for your flagship web presence.
             </p>
           </div>
 
@@ -158,10 +159,10 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
             <div className="py-12 text-center flex flex-col items-center justify-center">
               <CheckCircle2 size={56} className="text-primary mb-4 animate-bounce" />
               <h3 className="font-heading italic text-3xl sm:text-4xl text-white mb-2">
-                Brief Received
+                OneLoop Brief Received
               </h3>
               <p className="text-[#DEDBC8]/80 text-sm max-w-md font-body">
-                Thank you for reaching out. A partner director will review your vision and reply within 24 hours.
+                Thank you for reaching out. A partner director will review your specifications and schedule a private demonstration within 24 hours.
               </p>
             </div>
           ) : (
@@ -198,17 +199,17 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="text-[11px] uppercase tracking-wider text-[#DEDBC8]/70 block mb-1.5 font-medium font-mono">
-                    Scope of Work
+                    OneLoop Deployment Scope
                   </label>
                   <select
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                     className="w-full bg-[#181818] border border-white/10 rounded-xl px-4 py-3 text-sm text-[#E1E0CC] focus:border-primary outline-none transition-colors"
                   >
-                    <option>Brand & Digital Experience</option>
-                    <option>Cinematic Web Application</option>
-                    <option>Motion Design & Art Direction</option>
-                    <option>Full-Stack Studio Build</option>
+                    <option>OneLoop Studio Brand Experience</option>
+                    <option>Continuous Cinematic Web Application</option>
+                    <option>Interactive 3D Motion Architecture</option>
+                    <option>Custom OneLoop SDK Integration</option>
                   </select>
                 </div>
                 <div>
@@ -227,7 +228,7 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
                 </div>
                 <div>
                   <label className="text-[11px] uppercase tracking-wider text-[#DEDBC8]/70 block mb-1.5 font-medium font-mono">
-                    Budget Range
+                    Budget Allocation
                   </label>
                   <select
                     value={formData.budget}
@@ -249,7 +250,7 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us about your brand objectives, core timeline, and reference inspirations."
+                  placeholder="Tell us about your brand vision, performance requirements, and reference inspirations."
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-[#E1E0CC] placeholder:text-[#E1E0CC]/30 focus:border-primary outline-none transition-colors"
                 />
               </div>
@@ -259,7 +260,7 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
                   type="submit"
                   className="bg-[#DEDBC8] hover:bg-white text-black font-semibold text-sm px-8 py-3.5 rounded-full flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xl"
                 >
-                  <span>Submit Project Brief</span>
+                  <span>Submit OneLoop Brief</span>
                   <Send size={16} />
                 </button>
               </div>
@@ -269,17 +270,18 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
       </section>
 
       {/* =========================================================================
-          GLOBAL FOOTER
+          ONELOOP GLOBAL FOOTER
          ========================================================================= */}
       <footer className="border-t border-white/10 bg-[#070707] py-14 px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Left Brand info */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <span className="font-heading italic text-3xl text-[#E1E0CC] tracking-tight">
-              Asme &bull; Prisma Studio
+            <span className="font-heading italic text-3xl text-[#E1E0CC] tracking-tight flex items-center gap-2">
+              <Repeat size={20} className="text-primary" />
+              <span>OneLoop &bull; Studio</span>
             </span>
             <p className="text-xs text-[#DEDBC8]/60 mt-1 font-light">
-              Crafting cinematic digital experiences built to outlast trends.
+              The continuous cinematic visual standard built to outlast trends.
             </p>
           </div>
 
@@ -292,11 +294,13 @@ export const ShowreelAndInquiriesSection: React.FC<ShowreelAndInquiriesProps> = 
             <span>TOKYO</span>
             <span>&bull;</span>
             <span>PARIS</span>
+            <span>&bull;</span>
+            <span>SAN FRANCISCO</span>
           </div>
 
           {/* Right Action */}
           <div className="flex items-center gap-4">
-            <span className="text-xs text-[#DEDBC8]/50">&copy; 2026 Studio All Rights Reserved.</span>
+            <span className="text-xs text-[#DEDBC8]/50">&copy; 2026 OneLoop Studio. All Rights Reserved.</span>
             <button
               onClick={scrollToTop}
               className="liquid-glass rounded-full p-3 text-[#E1E0CC] hover:text-white hover:bg-white/10 transition-all hover:scale-110"

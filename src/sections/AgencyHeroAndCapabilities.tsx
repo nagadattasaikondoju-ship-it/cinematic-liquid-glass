@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Repeat, Sparkles } from 'lucide-react';
 import { FadingVideo } from '../components/FadingVideo';
 import {
   ImageFilledIcon,
@@ -28,11 +28,12 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
 
   return (
     <section id="capabilities" className="relative w-full bg-black text-[#E1E0CC] selection:bg-[#DEDBC8]/20 selection:text-white pt-16 pb-24 overflow-hidden">
-      {/* ----------------- CLIENT ROSTER MARQUEE ----------------- */}
+      {/* ----------------- ONELOOP CLIENT ROSTER MARQUEE ----------------- */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
         <div className="liquid-glass rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10 shadow-2xl">
-          <span className="text-xs uppercase font-mono tracking-widest text-primary/70 whitespace-nowrap">
-            // Trusted Worldwide by
+          <span className="text-xs uppercase font-mono tracking-widest text-primary/70 whitespace-nowrap flex items-center gap-2">
+            <Repeat size={12} className="text-primary" />
+            <span>// OneLoop Deployed Worldwide by</span>
           </span>
           <div className="flex items-center justify-center flex-wrap gap-8 sm:gap-12 md:gap-14 opacity-85">
             {partners.map((brand) => (
@@ -47,8 +48,8 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
         </div>
       </div>
 
-      {/* ----------------- CAPABILITIES MAIN ----------------- */}
-      <div className="relative min-h-[720px] rounded-3xl overflow-hidden max-w-7xl mx-auto border border-white/10 mx-4 sm:mx-6 md:mx-12">
+      {/* ----------------- ONELOOP CAPABILITIES MAIN ----------------- */}
+      <div className="relative min-h-[720px] rounded-3xl overflow-hidden max-w-7xl mx-auto border border-white/10 mx-4 sm:mx-6 md:mx-12 shadow-2xl">
         {/* Background Video */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <FadingVideo
@@ -63,11 +64,12 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
-              <div className="text-xs uppercase font-mono text-primary mb-3 tracking-[0.25em]">
-                // 02 Capabilities
+              <div className="text-xs uppercase font-mono text-primary mb-3 tracking-[0.25em] flex items-center gap-2">
+                <Sparkles size={12} />
+                <span>// 03 OneLoop Studio Disciplines</span>
               </div>
               <h2 className="font-heading italic text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-[-3px] text-[#E1E0CC]">
-                Studio craft,<br />end to end
+                Engineering the infinite<br />visual standard
               </h2>
             </div>
 
@@ -76,15 +78,15 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
                 onClick={onStartProject}
                 className="liquid-glass-strong rounded-full px-6 py-3 text-xs sm:text-sm font-semibold text-[#E1E0CC] hover:bg-white/10 transition-all flex items-center gap-2 hover:scale-105 active:scale-95 w-fit"
               >
-                <span>Initiate Discipline Brief</span>
+                <span>Initiate OneLoop Integration</span>
                 <ArrowRight size={14} className="text-primary" />
               </button>
             )}
           </div>
 
-          {/* 3 Cards Grid */}
+          {/* 3 Disciplines Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1: Design */}
+            {/* Card 1: Generative Loop Direction */}
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
@@ -95,7 +97,7 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
                   <ImageFilledIcon size={24} />
                 </div>
                 <div className="flex flex-wrap gap-1.5 justify-end">
-                  {['Brand Systems', 'Art Direction', 'Visual Identity', 'Motion'].map((tag) => (
+                  {['Infinite Camera Orbits', 'Seam Matching', 'Color ACES', '60 FPS'].map((tag) => (
                     <span
                       key={tag}
                       className="liquid-glass rounded-full px-3 py-1 text-[11px] text-[#E1E0CC]/90 font-body whitespace-nowrap"
@@ -111,15 +113,15 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
                   01 / Discipline
                 </span>
                 <h3 className="font-heading italic text-3xl md:text-4xl tracking-[-1px] leading-none mb-3 text-white">
-                  Design
+                  Generative Loop Direction
                 </h3>
                 <p className="text-sm text-[#DEDBC8]/80 font-body font-light leading-relaxed">
-                  We shape identities and interfaces that feel unmistakably yours &mdash; typographic systems, component libraries, and art-directed pages that scale without losing soul.
+                  We compose camera trajectories and particle physics specifically mathematically calibrated for seamless loop boundary stitching with zero visible jump cuts.
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 2: Engineering */}
+            {/* Card 2: Edge-Ready Engine Architecture */}
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
@@ -130,7 +132,7 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
                   <MovieFilledIcon size={24} />
                 </div>
                 <div className="flex flex-wrap gap-1.5 justify-end">
-                  {['React', 'Next.js', 'Headless CMS', 'Edge-Ready'].map((tag) => (
+                  {['Zero-CLS', 'Byte-Range Cache', 'RAF Clock', 'GLSL Shaders'].map((tag) => (
                     <span
                       key={tag}
                       className="liquid-glass rounded-full px-3 py-1 text-[11px] text-[#E1E0CC]/90 font-body whitespace-nowrap"
@@ -146,15 +148,15 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
                   02 / Discipline
                 </span>
                 <h3 className="font-heading italic text-3xl md:text-4xl tracking-[-1px] leading-none mb-3 text-white">
-                  Engineering
+                  Edge Engine Architecture
                 </h3>
                 <p className="text-sm text-[#DEDBC8]/80 font-body font-light leading-relaxed">
-                  Production-grade front-ends built on modern stacks. Performant, accessible, and instrumented &mdash; with code your team will enjoy extending long after launch.
+                  Hardware-accelerated rendering pipelines optimized for 0kb layout shift, automated low-power fallback, and sub-millisecond memory recycling across all modern browsers.
                 </p>
               </div>
             </motion.div>
 
-            {/* Card 3: Growth */}
+            {/* Card 3: Interactive Retention Loops */}
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
@@ -165,7 +167,7 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
                   <LightbulbFilledIcon size={24} />
                 </div>
                 <div className="flex flex-wrap gap-1.5 justify-end">
-                  {['SEO', 'Analytics', 'A/B Testing', 'Retention'].map((tag) => (
+                  {['Dwell Time Optimization', 'Refraction Depth', 'Scroll Scrubbing'].map((tag) => (
                     <span
                       key={tag}
                       className="liquid-glass rounded-full px-3 py-1 text-[11px] text-[#E1E0CC]/90 font-body whitespace-nowrap"
@@ -181,10 +183,10 @@ export const CapabilitiesSection: React.FC<CapabilitiesProps> = ({
                   03 / Discipline
                 </span>
                 <h3 className="font-heading italic text-3xl md:text-4xl tracking-[-1px] leading-none mb-3 text-white">
-                  Growth
+                  Interactive Retention Loops
                 </h3>
                 <p className="text-sm text-[#DEDBC8]/80 font-body font-light leading-relaxed">
-                  Launch is the starting line. We partner with your team on conversion, content, and iteration loops that turn a beautiful site into a compounding asset.
+                  Dynamic cursor refraction, progressive scroll interactions, and synchronized ambient acoustics that transform passive visitors into deeply engaged brand evangelists.
                 </p>
               </div>
             </motion.div>

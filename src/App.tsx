@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
 import { HeaderNav } from './components/HeaderNav';
-import { AsmeHeroSection } from './sections/AsmeHeroSection';
+import { OneLoopHeroSection } from './sections/AsmeHeroSection';
+import { OneLoopEngineSection } from './sections/OneLoopEngineSection';
 import { CapabilitiesSection } from './sections/AgencyHeroAndCapabilities';
 import { PrismaStudioSection } from './sections/PrismaStudioSection';
+import { OneLoopCaseStudiesSection } from './sections/OneLoopCaseStudiesSection';
 import { ShowreelAndInquiriesSection } from './sections/ShowreelAndInquiriesSection';
 import { ShowreelModal } from './components/ShowreelModal';
 import { InquiriesModal } from './components/InquiriesModal';
@@ -27,33 +30,46 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-black text-white relative selection:bg-[#DEDBC8]/20 selection:text-white font-body">
+      {/* Top Scroll Progress Line */}
+      <ScrollProgressBar />
+
       {/* Fixed Header Navbar */}
       <HeaderNav
         onStartProject={handleOpenInquiries}
         onShowManifesto={handleOpenManifesto}
       />
 
-      {/* Unified Single Scroll Landing Page */}
+      {/* Unified OneLoop Single Scroll Web Platform */}
       <main className="w-full flex flex-col">
-        {/* Section 1: Hero Experience */}
-        <AsmeHeroSection
+        {/* 01: Hero Experience */}
+        <OneLoopHeroSection
           onStartProject={handleOpenInquiries}
           onShowManifesto={handleOpenManifesto}
           onWatchShowreel={() => setShowreelOpen(true)}
         />
 
-        {/* Section 2: Global Roster & Capabilities */}
+        {/* 02: The OneLoop Continuous Engine Architecture */}
+        <OneLoopEngineSection
+          onExploreBrief={handleOpenInquiries}
+        />
+
+        {/* 03: Global Roster & Studio Disciplines */}
         <CapabilitiesSection
           onStartProject={handleOpenInquiries}
         />
 
-        {/* Section 3 & 4: Director Narrative & Studio Workflows */}
+        {/* 04 & 05: OneLoop Director Narrative & Studio Toolkit */}
         <PrismaStudioSection
           onJoinLab={handleOpenInquiries}
           onInquiriesClick={handleOpenInquiries}
         />
 
-        {/* Section 5, 6 & 7: 4K Showreel, Brief Inquiry Form & Footer */}
+        {/* 06: Flagship OneLoop Case Studies */}
+        <OneLoopCaseStudiesSection
+          onStartProject={handleOpenInquiries}
+        />
+
+        {/* 07 & 08: 4K Showreel, Brief Inquiry Form & Studio Footer */}
         <ShowreelAndInquiriesSection
           onOpenShowreelModal={() => setShowreelOpen(true)}
         />
