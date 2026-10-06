@@ -10,52 +10,58 @@ export interface TextSegment {
 interface WordsPullUpMultiStyleProps {
   segments: TextSegment[];
   className?: string;
+  containerClassName?: string;
 }
 
 export const WordsPullUpMultiStyle: React.FC<WordsPullUpMultiStyleProps> = ({
   segments,
   className = '',
+  containerClassName = '',
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
 
-  // Break down segments into a flat list of individual words while preserving styles
-  let globalWordIndex = 0;
-  const wordTokens = segments.flatMap((seg) => {
-    const rawWords = seg.text.split(' ');
-    return rawWords.map((word) => ({
-      word,
-      className: seg.className || '',
-      style: seg.style || {},
-      index: globalWordIndex++,
-    }));
-  });
+  let wordIndex = 0;
 
   return (
     <div
       ref={containerRef}
-      className={`inline-flex flex-wrap justify-center items-center text-center ${className}`}
+      className={`w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center gap-y-2 ${className} ${containerClassName}`}
     >
-      {wordTokens.map((item) => (
-        <motion.span
-          key={item.index}
-          className={`inline-block mr-[0.28em] ${item.className}`}
-          style={item.style}
-          initial={{ opacity: 0, y: 24, filter: 'blur(6px)' }}
-          animate={
-            isInView
-              ? { opacity: 1, y: 0, filter: 'blur(0px)' }
-              : { opacity: 0, y: 24, filter: 'blur(6px)' }
-          }
-          transition={{
-            duration: 0.8,
-            delay: item.index * 0.06,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-        >
-          {item.word}
-        </motion.span>
-      ))}
+      {segments.map((seg, segIdx) => {
+        const words = seg.text.split(' ').filter(Boolean);
+
+        return (
+          <div
+            key={segIdx}
+            className={`flex flex-wrap justify-center items-center text-center gap-x-2 gap-y-1 ${seg.className || ''}`}
+            style={seg.style}
+          >
+            {words.map((word, wIdx) => {
+              const currentIdx = wordIndex++;
+              return (
+                <motion.span
+                  key={wIdx}
+                  className="inline-block whitespace-nowrap"
+                  initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, y: 0, filter: 'blur(0px)' }
+                      : { opacity: 0, y: 20, filter: 'blur(8px)' }
+                  }
+                  transition={{
+                    duration: 0.7,
+                    delay: currentIdx * 0.04,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {word}
+                </motion.span>
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };

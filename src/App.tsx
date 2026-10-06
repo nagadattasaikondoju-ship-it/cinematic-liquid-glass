@@ -1,13 +1,13 @@
 import { useState } from 'react';
+import { HeaderNav } from './components/HeaderNav';
 import { AsmeHeroSection } from './sections/AsmeHeroSection';
-import { AgencyHeroAndCapabilities } from './sections/AgencyHeroAndCapabilities';
+import { CapabilitiesSection } from './sections/AgencyHeroAndCapabilities';
 import { PrismaStudioSection } from './sections/PrismaStudioSection';
+import { ShowreelAndInquiriesSection } from './sections/ShowreelAndInquiriesSection';
 import { ShowreelModal } from './components/ShowreelModal';
 import { InquiriesModal } from './components/InquiriesModal';
-import { ExperienceController } from './components/ExperienceController';
 
 export function App() {
-  const [activeView, setActiveView] = useState<'all' | 'asme' | 'agency' | 'prisma'>('all');
   const [showreelOpen, setShowreelOpen] = useState(false);
   const [modalState, setModalState] = useState<{
     open: boolean;
@@ -26,60 +26,40 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative selection:bg-white/20 selection:text-white">
-      {/* View Rendering */}
-      {activeView === 'all' && (
-        <main>
-          <AsmeHeroSection
-            onExploreClick={() => setActiveView('agency')}
-            onShowManifesto={handleOpenManifesto}
-          />
-          <AgencyHeroAndCapabilities
-            onStartProject={handleOpenInquiries}
-            onWatchShowreel={() => setShowreelOpen(true)}
-          />
-          <PrismaStudioSection
-            onJoinLab={handleOpenInquiries}
-            onInquiriesClick={handleOpenInquiries}
-          />
-        </main>
-      )}
-
-      {activeView === 'asme' && (
-        <main>
-          <AsmeHeroSection
-            onExploreClick={() => setActiveView('agency')}
-            onShowManifesto={handleOpenManifesto}
-          />
-        </main>
-      )}
-
-      {activeView === 'agency' && (
-        <main>
-          <AgencyHeroAndCapabilities
-            onStartProject={handleOpenInquiries}
-            onWatchShowreel={() => setShowreelOpen(true)}
-          />
-        </main>
-      )}
-
-      {activeView === 'prisma' && (
-        <main>
-          <PrismaStudioSection
-            onJoinLab={handleOpenInquiries}
-            onInquiriesClick={handleOpenInquiries}
-          />
-        </main>
-      )}
-
-      {/* Floating Controller */}
-      <ExperienceController
-        activeView={activeView}
-        onSelectView={setActiveView}
-        onOpenShowreel={() => setShowreelOpen(true)}
+    <div className="min-h-screen bg-black text-white relative selection:bg-[#DEDBC8]/20 selection:text-white font-body">
+      {/* Fixed Header Navbar */}
+      <HeaderNav
+        onStartProject={handleOpenInquiries}
+        onShowManifesto={handleOpenManifesto}
       />
 
-      {/* Modals */}
+      {/* Unified Single Scroll Landing Page */}
+      <main className="w-full flex flex-col">
+        {/* Section 1: Hero Experience */}
+        <AsmeHeroSection
+          onStartProject={handleOpenInquiries}
+          onShowManifesto={handleOpenManifesto}
+          onWatchShowreel={() => setShowreelOpen(true)}
+        />
+
+        {/* Section 2: Global Roster & Capabilities */}
+        <CapabilitiesSection
+          onStartProject={handleOpenInquiries}
+        />
+
+        {/* Section 3 & 4: Director Narrative & Studio Workflows */}
+        <PrismaStudioSection
+          onJoinLab={handleOpenInquiries}
+          onInquiriesClick={handleOpenInquiries}
+        />
+
+        {/* Section 5, 6 & 7: 4K Showreel, Brief Inquiry Form & Footer */}
+        <ShowreelAndInquiriesSection
+          onOpenShowreelModal={() => setShowreelOpen(true)}
+        />
+      </main>
+
+      {/* Interactive Overlays */}
       <ShowreelModal
         isOpen={showreelOpen}
         onClose={() => setShowreelOpen(false)}

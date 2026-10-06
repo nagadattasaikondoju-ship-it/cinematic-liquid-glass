@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, ArrowRight, Instagram, Twitter } from 'lucide-react';
+import { Globe, ArrowRight, Instagram, Twitter, ChevronDown, Sparkles } from 'lucide-react';
 import { FadingVideo } from '../components/FadingVideo';
+import { ClockStrokeIcon, GlobeStrokeIcon } from '../components/CustomIcons';
 
 interface AsmeHeroSectionProps {
-  onExploreClick?: () => void;
+  onStartProject?: () => void;
   onShowManifesto?: () => void;
+  onWatchShowreel?: () => void;
 }
 
 export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
-  onExploreClick,
-  onShowManifesto
+  onStartProject,
+  onShowManifesto,
+  onWatchShowreel,
 }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -25,163 +28,197 @@ export const AsmeHeroSection: React.FC<AsmeHeroSectionProps> = ({
   };
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden flex flex-col justify-between select-none">
+    <section id="hero" className="relative min-h-screen w-full bg-black overflow-hidden flex flex-col justify-between select-none">
       {/* Background Video with 17% downward shift and RAF fading */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <FadingVideo
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4"
           className="w-full h-full object-cover translate-y-[17%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black pointer-events-none" />
       </div>
 
-      {/* Navigation Bar */}
-      <header className="relative z-20 pl-6 pr-6 py-6 w-full">
-        <motion.nav
-          initial={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="liquid-glass rounded-full px-6 py-3 flex items-center justify-between max-w-5xl mx-auto"
-        >
-          {/* Logo & Links */}
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2 cursor-pointer" onClick={onExploreClick}>
-              <Globe size={24} className="text-white" />
-              <span className="text-white font-semibold text-lg tracking-tight">Asme</span>
-            </div>
-
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#capabilities" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
-                Features
-              </a>
-              <a href="#prisma" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
-                Pricing
-              </a>
-              <a href="#about" className="text-white/80 hover:text-white transition-colors text-sm font-medium">
-                About
-              </a>
-            </div>
-          </div>
-
-          {/* Right Action Buttons */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={onShowManifesto}
-              className="text-white hover:text-white/80 text-sm font-medium transition-colors px-2 py-1"
-            >
-              Sign Up
-            </button>
-            <button
-              onClick={onShowManifesto}
-              className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium hover:bg-white/5 transition-all"
-            >
-              Login
-            </button>
-          </div>
-        </motion.nav>
-      </header>
+      {/* Floating Pill Header Spacer */}
+      <div className="h-24" />
 
       {/* Hero Content Area */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-8 text-center max-w-5xl mx-auto w-full">
+        {/* Top Status Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="liquid-glass rounded-full px-4 py-1.5 inline-flex items-center gap-2.5 text-xs text-[#E1E0CC]/90 font-body mb-6"
+        >
+          <span className="bg-[#DEDBC8] text-black font-bold px-2 py-0.5 rounded-full text-[10px] tracking-wider uppercase flex items-center gap-1">
+            <Sparkles size={10} />
+            New
+          </span>
+          <span className="tracking-wide">Booking Q3/Q4 2026 engagements &mdash; limited capacity</span>
+        </motion.div>
+
         {/* Main Heading in Instrument Serif */}
         <motion.h1
           initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           style={{ fontFamily: "'Instrument Serif', serif" }}
-          className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] text-[#E1E0CC] mb-6 tracking-tight leading-[0.95] max-w-4xl"
         >
-          Built for the curious
+          Crafted Digital Experiences Built for the Curious
         </motion.h1>
 
-        {/* Interactive Center Input & Subtitle */}
+        {/* Subtitle Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: 'easeOut' }}
+          className="text-[#DEDBC8]/80 text-sm sm:text-base max-w-2xl font-light font-body leading-relaxed mb-8"
+        >
+          We shape brand-defining websites and interactive visual systems for visionary creators. Precise typography, cinematic motion, and code you can be proud of.
+        </motion.p>
+
+        {/* Interactive Email Bar & Quick CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-xl w-full space-y-4"
         >
           {/* Email input bar with liquid-glass morphism */}
           <form
             onSubmit={handleSubscribe}
-            className="liquid-glass rounded-full pl-6 pr-2 py-2 flex items-center gap-3 transition-all focus-within:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+            className="liquid-glass rounded-full pl-6 pr-2 py-2 flex items-center gap-3 transition-all focus-within:shadow-[0_0_30px_rgba(222,219,200,0.2)]"
           >
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder={subscribed ? "✓ You're on the exclusive list!" : "Enter your email"}
-              className="bg-transparent flex-1 text-white placeholder:text-white/40 text-base outline-none border-none"
+              placeholder={subscribed ? "✓ You're on the exclusive VIP list!" : "Enter your email for private drop alerts"}
+              className="bg-transparent flex-1 text-[#E1E0CC] placeholder:text-[#E1E0CC]/40 text-sm sm:text-base outline-none border-none"
               required
             />
             <button
               type="submit"
               aria-label="Submit email"
-              className="bg-white hover:bg-white/90 rounded-full p-3 text-black transition-all hover:scale-105 active:scale-95 flex items-center justify-center cursor-pointer"
+              className="bg-[#DEDBC8] hover:bg-white rounded-full p-3 text-black transition-all hover:scale-105 active:scale-95 flex items-center justify-center cursor-pointer shadow-md"
             >
-              <ArrowRight size={20} />
+              <ArrowRight size={18} />
             </button>
           </form>
 
-          {/* Subtitle Description */}
-          <p className="text-white text-sm leading-relaxed px-4 font-light">
-            Stay updated with the latest news and insights. Subscribe to our newsletter today and never miss out on exciting updates.
-          </p>
-
-          {/* Manifesto Button */}
-          <div className="pt-2">
+          {/* Action Buttons Row */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <button
+              onClick={onStartProject}
+              className="liquid-glass-strong rounded-full px-6 py-2.5 text-xs sm:text-sm font-semibold text-[#E1E0CC] hover:bg-white/10 transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+            >
+              <span>Initiate Project</span>
+              <ArrowRight size={14} className="text-primary" />
+            </button>
+            <button
+              onClick={onWatchShowreel}
+              className="liquid-glass rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-[#E1E0CC]/90 hover:text-white transition-all hover:bg-white/5"
+            >
+              Watch 4K Showreel
+            </button>
             <button
               onClick={onShowManifesto}
-              className="liquid-glass rounded-full px-8 py-3 text-white text-sm font-medium hover:bg-white/5 transition-all inline-flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+              className="text-[#E1E0CC]/70 hover:text-[#E1E0CC] text-xs sm:text-sm font-medium transition-colors px-3 py-2"
             >
-              <span>Read the Manifesto</span>
-              <ArrowRight size={16} className="text-white/70" />
+              Read Manifesto &rarr;
             </button>
           </div>
         </motion.div>
-      </main>
 
-      {/* Social Icons Footer */}
-      <footer className="relative z-10 flex justify-center gap-4 pb-12">
-        <motion.a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Asme on Instagram"
-          initial={{ opacity: 0, y: 20 }}
+        {/* Stats Cards Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all hover:scale-110"
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 w-full max-w-2xl"
         >
-          <Instagram size={20} />
-        </motion.a>
-        <motion.a
-          href="https://twitter.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Asme on Twitter"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all hover:scale-110"
+          <div className="liquid-glass p-4 rounded-2xl text-left">
+            <div className="text-primary flex items-center justify-between">
+              <ClockStrokeIcon size={18} />
+              <span className="text-[10px] uppercase font-mono text-white/40">Speed</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-heading italic tracking-[-1px] text-[#E1E0CC] mt-2">
+              6 Weeks
+            </div>
+            <p className="text-[11px] text-[#DEDBC8]/60 font-body font-light mt-1">
+              Average End-to-End Launch
+            </p>
+          </div>
+
+          <div className="liquid-glass p-4 rounded-2xl text-left">
+            <div className="text-primary flex items-center justify-between">
+              <GlobeStrokeIcon size={18} />
+              <span className="text-[10px] uppercase font-mono text-white/40">Global</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-heading italic tracking-[-1px] text-[#E1E0CC] mt-2">
+              140+ Brands
+            </div>
+            <p className="text-[11px] text-[#DEDBC8]/60 font-body font-light mt-1">
+              Shipped Across 4 Continents
+            </p>
+          </div>
+
+          <div className="liquid-glass p-4 rounded-2xl text-left col-span-2 sm:col-span-1">
+            <div className="text-primary flex items-center justify-between">
+              <Sparkles size={18} />
+              <span className="text-[10px] uppercase font-mono text-white/40">Master</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-heading italic tracking-[-1px] text-[#E1E0CC] mt-2">
+              60 FPS
+            </div>
+            <p className="text-[11px] text-[#DEDBC8]/60 font-body font-light mt-1">
+              Cinematic Fluid Motion
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Hero Footer Bar */}
+      <div className="relative z-10 flex items-center justify-between px-6 md:px-12 py-6 max-w-7xl mx-auto w-full">
+        {/* Social Links */}
+        <div className="flex items-center gap-3">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="liquid-glass rounded-full p-2.5 text-[#E1E0CC]/80 hover:text-white hover:bg-white/10 transition-all"
+          >
+            <Instagram size={16} />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            className="liquid-glass rounded-full p-2.5 text-[#E1E0CC]/80 hover:text-white hover:bg-white/10 transition-all"
+          >
+            <Twitter size={16} />
+          </a>
+          <a
+            href="#capabilities"
+            aria-label="Global"
+            className="liquid-glass rounded-full p-2.5 text-[#E1E0CC]/80 hover:text-white hover:bg-white/10 transition-all"
+          >
+            <Globe size={16} />
+          </a>
+        </div>
+
+        {/* Scroll Indicator */}
+        <a
+          href="#capabilities"
+          className="flex items-center gap-2 text-xs font-mono text-[#DEDBC8]/60 hover:text-primary transition-colors group"
         >
-          <Twitter size={20} />
-        </motion.a>
-        <motion.a
-          href="#explore"
-          onClick={(e) => {
-            e.preventDefault();
-            if (onExploreClick) onExploreClick();
-          }}
-          aria-label="Explore Global Ecosystem"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all hover:scale-110"
-        >
-          <Globe size={20} />
-        </motion.a>
-      </footer>
-    </div>
+          <span>EXPLORE CAPABILITIES</span>
+          <ChevronDown size={14} className="group-hover:translate-y-1 transition-transform" />
+        </a>
+      </div>
+    </section>
   );
 };

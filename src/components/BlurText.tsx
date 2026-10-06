@@ -11,36 +11,27 @@ export const BlurText: React.FC<BlurTextProps> = ({ text, className = '', style 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
 
-  const words = text.split(' ');
+  const words = text.split(' ').filter(Boolean);
 
   return (
     <div
       ref={containerRef}
-      className={className}
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        rowGap: '0.1em',
-        ...style,
-      }}
+      className={`flex flex-wrap justify-center items-center text-center gap-x-3 gap-y-1 ${className}`}
+      style={style}
     >
       {words.map((word, index) => (
         <motion.span
           key={index}
-          style={{
-            display: 'inline-block',
-            marginRight: '0.28em',
-          }}
-          initial={{ filter: 'blur(10px)', opacity: 0, y: 50 }}
+          className="inline-block whitespace-nowrap"
+          initial={{ filter: 'blur(12px)', opacity: 0, y: 35 }}
           animate={
             isInView
               ? { filter: 'blur(0px)', opacity: 1, y: 0 }
-              : { filter: 'blur(10px)', opacity: 0, y: 50 }
+              : { filter: 'blur(12px)', opacity: 0, y: 35 }
           }
           transition={{
-            duration: 0.7,
-            delay: index * 0.1,
+            duration: 0.75,
+            delay: index * 0.08,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
