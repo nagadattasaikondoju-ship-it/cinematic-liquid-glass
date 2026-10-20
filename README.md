@@ -51,3 +51,17 @@ npm run dev
 ```
 
 4. Open your browser at `http://localhost:5173`.
+
+## Claude Code agents & plugins
+
+This repo ships a project-scoped Claude Code setup in `.claude/`, so any Claude Code session opened here (local or cloud) picks it up:
+
+- **`.claude/agents/`** — 282 specialist subagents from [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) (engineering, design, marketing, sales, security, testing, …). Refresh with `./scripts/install.sh --tool claude-code --path <repo>/.claude/agents` from a clone of that repo.
+- **`.claude/settings.json`** — registers three plugin marketplaces and enables a curated set of plugins:
+  - [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills): `agent-skills`
+  - [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins): `engineering`
+  - [wshobson/agents](https://github.com/wshobson/agents): `agent-orchestration`, `agent-teams`, `llm-application-dev`, `context-management`, `full-stack-orchestration`, `frontend-mobile-development`, `javascript-typescript`, `ui-design`, `comprehensive-review`, `tdd-workflows`
+
+  Add more with `claude plugin install <name>@<marketplace> --scope project` (marketplaces: `claude-code-workflows`, `addy-agent-skills`, `knowledge-work-plugins`).
+
+[anthropics/claude-quickstarts](https://github.com/anthropics/claude-quickstarts) is reference code (runnable agent apps), not a plugin — clone it separately to study or fork an app.
